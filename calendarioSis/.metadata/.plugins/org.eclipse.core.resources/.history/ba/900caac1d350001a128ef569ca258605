@@ -1,0 +1,67 @@
+package sistema.calendario.entities;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "calendario")
+public class Calendario {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	private String descricao;
+	
+	private Date horaInicio;
+	
+	private Date horaTermino;
+
+	public Calendario() {
+	}
+
+	public Calendario(Integer id, String descricao, Date horaInicio, Date horaTermino) {
+		this.id = id;
+		this.descricao = descricao;
+		this.horaInicio = horaInicio;
+		this.horaTermino = horaTermino;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Date getHoraInicio() {
+		return horaInicio;
+	}
+
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public Date getHoraTermino() {
+		return horaTermino;
+	}
+
+	public void setHoraTermino(Date horaTermino) {
+		this.horaTermino = horaTermino;
+	}
+	
+}

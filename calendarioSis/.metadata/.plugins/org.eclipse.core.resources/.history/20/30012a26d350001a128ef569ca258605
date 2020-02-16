@@ -1,0 +1,5 @@
+package sistema.calendario.repositories;
+
+public class CalendarioRepository {
+
+}
