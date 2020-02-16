@@ -1,1 +1,18 @@
-<p>calendario-listar works!</p>
+<table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <td>Código</td>
+        <td>Descricao</td>
+        <td>Hora de inicio</td>
+        <td>Hora de termino</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let calendario of calendarios">
+        <td>{{calendario.id}}</td>
+        <td>{{calendario.descricao}}</td>
+        <td>{{calendario.hora_inicio}}</td>
+        <td>{{calendario.hora_termino}}</td>
+      </tr>
+    </tbody>
+  </table>

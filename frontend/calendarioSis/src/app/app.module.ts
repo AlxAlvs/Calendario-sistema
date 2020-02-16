@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendarioListarComponent } from './calendarios/calendario-listar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CalendarioListarComponent } from './calendarios/calendario-listar.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    routing
+    routing,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import Calendario from '../models/Calendario';
+import { CalendarioService } from '../services/calendario.service';
+
 
 @Component({
   selector: 'app-calendario-listar',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarioListarComponent implements OnInit {
 
-  constructor() { }
+  calendarios:Calendario [] = [];
+
+  constructor(private calendarioService:CalendarioService) { }
 
   ngOnInit() {
+    this.carregarCalendarios();
   }
 
+  carregarCalendarios(){
+    this.calendarioService
+      .buscarTodos()
+      .subscribe(calendarios=>{
+        this.calendarios = calendarios;
+    })
+  }
 }
