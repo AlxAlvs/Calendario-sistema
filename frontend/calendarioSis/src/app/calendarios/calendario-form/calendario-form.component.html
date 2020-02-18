@@ -1,0 +1,15 @@
+<form [formGroup]="formulario" (ngSubmit)="criar()">
+    <div class="form-group">
+      <label for="descricao">descricao</label>
+      <input type="text" formControlName="descricao" class="form-control" id="descricao" aria-describedby="descricao">
+    </div>
+    <div class="form-group">
+      <label for="hora_inicio">Hora de início</label>
+      <input type="text" formControlName="hora_inicio" class="form-control" id="hora_inicio">
+    </div>
+    <div class="form-group">
+        <label for="Hora_termino">Hora de término</label>
+        <input type="text" formControlName="hora_termino" class="form-control" id="Hora_termino">
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>

@@ -18,4 +18,8 @@ export class CalendarioService {
       .pipe(map(x => <Calendario[]>x))
     
   }
+
+  criar(calendario: any) {
+    return this.http.post(`${environment.apiBaseUrl}calendarios`, calendario);
+  }
 }
