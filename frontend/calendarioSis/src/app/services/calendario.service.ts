@@ -22,4 +22,16 @@ export class CalendarioService {
   criar(calendario: any) {
     return this.http.post(`${environment.apiBaseUrl}calendarios`, calendario);
   }
+
+  getCalendario(calendarioId : string) : Observable<Calendario>{
+    return this.http.get<Calendario>(`${environment.apiBaseUrl}calendarios`+'/'+calendarioId);
+  } 
+
+  updateCalendario(calendario : Calendario) : Observable<Calendario>{
+    return this.http.put<Calendario>(`${environment.apiBaseUrl}calendarios`+'/'+calendario.id.toString(), calendario);
+  } 
+
+  deleteCalendario(calendarioId : string) : Observable<Calendario> {
+    return this.http.delete<Calendario>(`${environment.apiBaseUrl}calendarios`+'/'+ calendarioId.toString());
+  }
 }

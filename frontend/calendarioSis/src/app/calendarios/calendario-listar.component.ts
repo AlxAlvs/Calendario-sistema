@@ -25,4 +25,10 @@ export class CalendarioListarComponent implements OnInit {
         this.calendarios = calendarios;
     })
   }
+
+  delete(calendario : Calendario) {
+    this.calendarioService.deleteCalendario(calendario.id.toString())
+    .subscribe( usuario => this.carregarCalendarios(),
+    error => console.error(error));
+  }
 }

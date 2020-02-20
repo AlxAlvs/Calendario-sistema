@@ -1,6 +1,8 @@
 Instruções
 
-- Abrir a pasta calendarioSis deste mesmo diretorio no eclipse e executar a api como "Java application".
+- Abrir a pasta calendarioSis deste mesmo diretorio no eclipse(IDE).
+- No arquivo application.properties configurar usuario e senha do banco de dados, caso haja.
+- Executar a api como "Java application".
 - Abrir a pasta calendarioSis dentro da pasta frontend deste mesmo diretorio pelo cmd. executar o commando "ng serve" para executar a aplicação.
 - Abrir o pgadmin do banco de dados postgreSQL executar o seguinte script: 
 

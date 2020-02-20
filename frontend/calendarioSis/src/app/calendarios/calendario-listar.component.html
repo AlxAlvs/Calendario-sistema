@@ -2,9 +2,10 @@
     <thead>
       <tr>
         <td>Código</td>
-        <td>Descricao</td>
-        <td>Hora de inicio</td>
-        <td>Hora de termino</td>
+        <td>Descrição</td>
+        <td>Hora de início</td>
+        <td>Hora de término</td>
+        <td>Opções</td>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +14,10 @@
         <td>{{calendario.descricao}}</td>
         <td>{{calendario.hora_inicio}}</td>
         <td>{{calendario.hora_termino}}</td>
+        <td>
+          <button type="button" class="btn btn-secondary" [routerLink]='["/alterar/"+calendario.id]'>Alterar</button>
+          <button type="button" class="btn btn-danger" (click)="delete(calendario)">Remover</button>
+        </td>       
       </tr>
     </tbody>
   </table>

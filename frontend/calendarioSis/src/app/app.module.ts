@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { CalendarioFormComponent } from './calendarios/calendario-form/calendario-form.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
+import { LoginFormComponent } from './login/login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarioListarComponent,
     CalendarioFormComponent,
-    LoginComponent
+    LoginComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
