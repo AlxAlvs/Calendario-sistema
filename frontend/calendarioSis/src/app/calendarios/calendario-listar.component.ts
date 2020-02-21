@@ -27,8 +27,11 @@ export class CalendarioListarComponent implements OnInit {
   }
 
   delete(calendario : Calendario) {
-    this.calendarioService.deleteCalendario(calendario.id.toString())
-    .subscribe( usuario => this.carregarCalendarios(),
-    error => console.error(error));
+    var resposta = confirm("Deseja remover esse registro?");
+    if(resposta){
+      this.calendarioService.deleteCalendario(calendario.id.toString())
+      .subscribe( usuario => this.carregarCalendarios(),
+      error => console.error(error));
+    }    
   }
 }

@@ -28,13 +28,13 @@ export class LoginFormComponent implements OnInit {
   criar() {
 
     if (this.formulario.invalid) {
-      alert("usuario e/ou senha invalidos");
+      alert("usuario e/ou senha inválidos");
       return;
     }
 
     let usuario : Usuario = Object.assign({}, this.formulario.value);
 
-    this.service.criar(usuario).subscribe(usuario=> this.OnSaveSucess()),
+    this.service.criar(usuario).subscribe(usuario => this.OnSaveSucess()),
     error => console.error(error);
   }
 

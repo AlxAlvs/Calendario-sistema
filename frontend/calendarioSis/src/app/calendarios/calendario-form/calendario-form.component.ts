@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CalendarioService } from 'src/app/services/calendario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Calendario from 'src/app/models/Calendario';
@@ -14,9 +12,9 @@ import Calendario from 'src/app/models/Calendario';
 export class CalendarioFormComponent implements OnInit {
 
   formulario:FormGroup;
-
   modoEdicao: boolean = false;
   calendarioId: number;
+  calendarios:Calendario [] = [];
 
   constructor(private formBuilder: FormBuilder,
               private service: CalendarioService,
@@ -25,9 +23,9 @@ export class CalendarioFormComponent implements OnInit {
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
-      descricao:[null],
-      hora_inicio:[null],
-      hora_termino:[null]
+      descricao:[null, Validators.required],
+      hora_inicio:[null, Validators.required],
+      hora_termino:[null, Validators.required]
     });
 
     this.activatedRoute.params.subscribe(params=> {
@@ -56,19 +54,39 @@ export class CalendarioFormComponent implements OnInit {
   criar() {
     let calendario : Calendario = Object.assign({}, this.formulario.value);
 
-    if(this.modoEdicao)   
-    { //editar dados
-        calendario.id = this.calendarioId;
-        this.service.updateCalendario(calendario)
-        .subscribe(calendario=> this.OnSaveSucess()),
-         error => console.error(error);
+    if (this.formulario.invalid) {
+      alert("existem campos inválidos");
+      return;
     }
-    else
-    {//incluir dados
-         this.service.criar(calendario)
-        .subscribe(calendario=> this.OnSaveSucess()),
-         error => console.error(error);
-    }
+
+    this.service
+      .buscarTodos()
+      .subscribe(calendarios=>{
+        this.calendarios = calendarios;
+
+        if(this.calendarios.some(x => x.descricao == calendario.descricao && 
+                                 x.hora_inicio == calendario.hora_inicio &&
+                                 x.hora_termino == calendario.hora_termino &&
+                                 x.id != this.calendarioId))
+        {
+          alert("já existe um calendário com esta descrição, hora de início e hora de término");
+          return;
+        }
+
+        if(this.modoEdicao)   
+        {//editar dados
+          calendario.id = this.calendarioId;
+          this.service.updateCalendario(calendario)
+          .subscribe(calendario=> this.OnSaveSucess()),
+          error => console.error(error);
+        }
+        else
+        {//incluir dados
+          this.service.criar(calendario)
+          .subscribe(calendario=> this.OnSaveSucess()),
+          error => console.error(error);
+        }
+    })   
   }
 
   OnSaveSucess(){

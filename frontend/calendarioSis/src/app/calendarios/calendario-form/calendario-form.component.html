@@ -1,14 +1,14 @@
 <h1>{{modoEdicao? "Editar": "Incluir"}} Evento</h1>
 <form [formGroup]="formulario" (ngSubmit)="criar()">
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-10">
       <label for="descricao">descricao</label>
       <input type="text" formControlName="descricao" class="form-control" id="descricao" aria-describedby="descricao">
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3">
       <label for="hora_inicio">Hora de início</label>
       <input type="time" formControlName="hora_inicio" class="form-control" id="hora_inicio">
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3">
         <label for="Hora_termino">Hora de término</label>
         <input type="time" formControlName="hora_termino" class="form-control" id="Hora_termino">
     </div>

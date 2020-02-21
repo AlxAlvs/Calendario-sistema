@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
@@ -19,12 +18,11 @@ export class AuthService {
               private http:HttpClient) { }
 
   async fazerLogin(usuario:Usuario){
-
-    let usuarios:Usuario [];  
     
     await this.http.get(`${environment.apiBaseUrl}usuarios`)
-    .pipe(map(x => <Usuario[]>x))
-    .subscribe(usuarios=>{usuarios = usuarios;
+                   .pipe(map(x => <Usuario[]>x))
+                   .subscribe(usuarios=>{usuarios = usuarios;
+
       if(usuarios.some(x => x.nome == usuario.nome && x.senha == usuario.senha)){
         this.mostrarMenuEmitter.emit(true);
         this.usuarioAutenticado = true;
