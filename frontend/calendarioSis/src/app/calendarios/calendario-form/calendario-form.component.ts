@@ -61,8 +61,7 @@ export class CalendarioFormComponent implements OnInit {
 
     this.service
       .buscarTodos()
-      .subscribe(calendarios=>{
-        this.calendarios = calendarios;
+      .subscribe(calendarios=>{this.calendarios = calendarios;
 
         if(this.calendarios.some(x => x.descricao == calendario.descricao && 
                                  x.hora_inicio == calendario.hora_inicio &&
@@ -86,7 +85,7 @@ export class CalendarioFormComponent implements OnInit {
           .subscribe(calendario=> this.OnSaveSucess()),
           error => console.error(error);
         }
-    })   
+      })   
   }
 
   OnSaveSucess(){

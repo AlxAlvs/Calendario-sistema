@@ -24,9 +24,7 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-
   criar() {
-
     if (this.formulario.invalid) {
       alert("usuario e/ou senha inválidos");
       return;

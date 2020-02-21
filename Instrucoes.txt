@@ -1,11 +1,15 @@
 Instruções
 
 - Abrir a pasta calendarioSis deste mesmo diretorio no eclipse(IDE).
+
 - No arquivo application.properties dentro de src/main/resources
   configurar usuario e senha do banco de dados, caso haja.
-- Executar a api como "Java application".
+
+- Executar a api como "Java application".(botão direito no arquivo app.java -> "run as" -> "java application").
+
 - Abrir a pasta calendarioSis dentro da pasta frontend deste mesmo diretorio pelo cmd. 
   executar o commando "ng serve" para executar a aplicação do frontend.
+
 - Abrir o pgadmin do banco de dados postgreSQL e executar o seguinte script: 
 
 CREATE DATABASE calendario;
