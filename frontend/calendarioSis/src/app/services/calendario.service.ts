@@ -15,8 +15,7 @@ export class CalendarioService {
   buscarTodos(): Observable<Calendario[]> {
       return this.http
       .get(`${environment.apiBaseUrl}calendarios`)
-      .pipe(map(x => <Calendario[]>x))
-    
+      .pipe(map(x => <Calendario[]>x))   
   }
 
   criar(calendario: any) {
